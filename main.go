@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -26,10 +27,11 @@ func main() {
 
 	if !strings.HasSuffix(args[0], ".txt") {
 		fmt.Println("Use a txt file")
-		os.Exit(1)
+		return
 	}
 
 	y := []float64{}
+	maxInt := math.MaxInt
 	g := strings.Split(data, "\n")
 	for _, str := range g {
 
@@ -42,13 +44,19 @@ func main() {
 		num, err := strconv.ParseFloat(str, 64)
 		if err != nil {
 			fmt.Println("Error converting the string to float", err)
-			os.Exit(1)
+			return
 		}
 
 		y = append(y, num)
 	}
 	if len(y) == 0 {
 		return
+	}
+	for _, nb := range y {
+		if nb > float64(maxInt) {
+			fmt.Println("Number is too large")
+			return
+		}
 	}
 	n := float64(len(y))
 	var x []float64
