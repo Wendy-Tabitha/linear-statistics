@@ -1,5 +1,6 @@
 package statistics
 
+// Computes the slope and intercept of the linear regression line for datasets x and y.
 func Regression(x, y []float64, xMean, yMean float64) (float64, float64) {
 	var num, denom float64
 	for i := 0; i < len(x); i++ {

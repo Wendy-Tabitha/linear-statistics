@@ -1,5 +1,6 @@
 package statistics
 
+// Calculates the mean (average) of a slice of float64 numbers.
 func Mean(num []float64) float64 {
 	total := 0.0
 	n := len(num)
