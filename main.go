@@ -52,6 +52,12 @@ func main() {
 	if len(y) == 0 {
 		return
 	}
+	if len(y) == 1 {
+		fmt.Println("Only one value in data set")
+		return
+	}
+
+
 	for _, nb := range y {
 		if nb > float64(maxInt) {
 			fmt.Println("Number is too large")
