@@ -31,7 +31,6 @@ func main() {
 	}
 
 	y := []float64{}
-	maxInt := math.MaxInt
 	g := strings.Split(data, "\n")
 	for _, str := range g {
 
@@ -57,13 +56,20 @@ func main() {
 		return
 	}
 
+	maxInt := float64(math.MaxInt)
+	minInt := float64(math.MinInt)
 
 	for _, nb := range y {
-		if nb > float64(maxInt) {
-			fmt.Println("Number is too large")
+		if nb >= maxInt {
+			fmt.Println("Large value in data set")
+			return
+		}
+		if nb <= minInt {
+			fmt.Println("Smaller value in data set")
 			return
 		}
 	}
+
 	n := float64(len(y))
 	var x []float64
 	for i := 0.0; i < n; i++ {
