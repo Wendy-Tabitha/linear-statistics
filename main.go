@@ -70,6 +70,21 @@ func main() {
 		}
 	}
 
+	// Check if all values are the same
+	allSame := true
+	firstValue := y[0]
+	for _, value := range y {
+		if value != firstValue {
+			allSame = false
+			break
+		}
+	}
+
+	if allSame {
+		fmt.Println("All values in the dataset are identical")
+		return
+	}
+
 	n := float64(len(y))
 	var x []float64
 	for i := 0.0; i < n; i++ {
