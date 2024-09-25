@@ -65,7 +65,7 @@ func main() {
 	}
 
 	// Calculate means of x and y
-	xMean, yMean := Mean(x), Mean(y)
+	xMean, yMean := statistics.Mean(x), statistics.Mean(y)
 
 	m, b := statistics.Regression(x, y, xMean, yMean)
 
@@ -74,13 +74,4 @@ func main() {
 	// Output results
 	fmt.Printf("Linear Regression Line: y = %.6fx + %.6f\n", m, b)
 	fmt.Printf("Pearson Correlation Coefficient: %.10f\n", r)
-}
-
-func Mean(num []float64) float64 {
-	total := 0.0
-	n := len(num)
-	for _, nb := range num {
-		total += nb
-	}
-	return total / float64(n)
 }
