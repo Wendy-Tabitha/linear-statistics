@@ -2,6 +2,7 @@ package statistics
 
 import "math"
 
+// Calculates the Pearson correlation coefficient between two datasets x and y.
 func Correlation(x, y []float64, xMean, yMean float64) float64 {
 	var num, denomX, denomY float64
 	for i := 0; i < len(x); i++ {
